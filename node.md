@@ -90,3 +90,17 @@
 #### 5.styled-components
 
 安装：`npm install styled-components`
+
+#### 6.集成material UI
+
+安装：`npm install @mui/material @mui/styled-engine-sc`
+
+因为已经配置了style-components，所以不需要在安装。
+
+在官方文档中都有安装的步骤。
+
+#### 7.集成ant design
+
+安装：`npm install antd`
+
+官方文档中有安装的具体步骤，还有配置。

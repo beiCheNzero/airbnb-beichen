@@ -8,7 +8,8 @@ module.exports = {
   webpack: {
     alias: {
       "@": resolve('src'),
-      "utils": resolve('src/utils')
+      "utils": resolve('src/utils'),
+      '@mui/styled-engine': '@mui/styled-engine-sc'
     }
   },
   // 配置less
@@ -16,14 +17,14 @@ module.exports = {
     {
       plugin: CracoLessPlugin,
       // 如下是针对antdesign中增加的配置，这里可以不用
-      // options: {
-      //   lessLoaderOptions: {
-      //     lessOptions: {
-      //       modifyVars: { "@primary-color": "#1DA57A" },
-      //       javascriptEnables: true
-      //     }
-      //   }
-      // }
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#1DA57A' },
+            javascriptEnabled: true,
+          }
+        }
+      }
     }
   ]
 }

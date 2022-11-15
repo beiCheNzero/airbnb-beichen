@@ -1,4 +1,4 @@
-function styleStrToObject(styleStr) {
+function styleStrToObj(styleStr) {
   var obj = {}
   const s = styleStr.toLowerCase().replace(/-(.)/g, function (m, g) {
     return g.toUpperCase();
@@ -10,5 +10,5 @@ function styleStrToObject(styleStr) {
 }
 
 export {
-  styleStrToObject
+  styleStrToObj
 }
