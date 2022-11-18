@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
-  width: 25%;
+  flex-shrink: 0; // 内容不压缩
+  width: ${props => props.itemWidth};
   padding: 8px;
-  margin: 8px 0;
+  /* margin: 8px 0; */
   box-sizing: border-box;
 
   .inner {
@@ -118,9 +119,10 @@ export const ItemWrapper = styled.div`
   .bottom {
     display: flex;
     align-items: center;
-    font-size: 12px;
+    font-size: 8px;
     font-weight: 600;
     color: ${props => props.theme.text.primaryColor};
+    /* flex-wrap: wrap; */
 
     .count {
       margin: 0 2px 0 4px;

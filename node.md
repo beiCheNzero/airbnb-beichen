@@ -104,3 +104,8 @@
 安装：`npm install antd`
 
 官方文档中有安装的具体步骤，还有配置。
+
+#### 8.classNames库
+
+安装：`npm install classnames`
+

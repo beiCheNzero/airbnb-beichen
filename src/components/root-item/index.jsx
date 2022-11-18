@@ -4,11 +4,14 @@ import { ItemWrapper } from './style'
 import { Rate } from 'antd'
 
 const RoomItem = memo((props) => {
-  const { itemData } = props
+  const { itemData,itemWidth = '25%' } = props
 
 
   return (
-    <ItemWrapper verifyColor={itemData?.verify_info?.text_color || '#39576a'}>
+    <ItemWrapper 
+      verifyColor={itemData?.verify_info?.text_color || '#39576a'}
+      itemWidth={itemWidth}
+    >
       <div className='inner'>
         <div className='cover'>
           <img src={itemData.picture_url} alt="" />
@@ -20,13 +23,14 @@ const RoomItem = memo((props) => {
         <div className="price">￥{itemData.price}/晚</div>
         <div className='bottom'>
           <Rate disabled defaultValue={itemData.star_rating ?? 4.5} allowHalf style={{
-            fontSize: '10px', color: '#00848A'
+            fontSize: '9px', color: '#00848A'
           }} />
-          <span className='count'>浏览:{itemData?.reviews_count}</span>
-          {
-            itemData.bottom_info && <span className='extra'>· {itemData?.bottom_info?.content}</span>
-          }
-          
+          <div className="bottom-dest">
+            <span className='count'>浏览:{itemData?.reviews_count}</span>
+            {
+              itemData.bottom_info && <span className='extra'>· {itemData?.bottom_info?.content}</span>
+            }
+          </div>
         </div>
       </div>
     </ItemWrapper>
