@@ -4,14 +4,6 @@ const CracoLessPlugin = require('craco-less')
 const resolve = pathname => path.resolve(__dirname, pathname)
 
 module.exports = {
-  // 配置webpack
-  webpack: {
-    alias: {
-      "@": resolve('src'),
-      "utils": resolve('src/utils'),
-      '@mui/styled-engine': '@mui/styled-engine-sc'
-    }
-  },
   // 配置less
   plugins: [
     {
@@ -26,5 +18,14 @@ module.exports = {
         }
       }
     }
-  ]
+  ],
+  // 配置webpack
+  webpack: {
+    alias: {
+      "@": resolve("src"),
+      "components": resolve("src/components"),
+      "utils": resolve("src/utils"),
+      // '@mui/styled-engine': '@mui/styled-engine-sc'
+    }
+  }
 }

@@ -109,3 +109,8 @@
 
 安装：`npm install classnames`
 
+#### 9.给图片添加动画的库
+
+安装: `npm install react-transition--group`
+
+#### 10.防抖节流函数的库:underscore/lodash

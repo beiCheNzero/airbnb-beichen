@@ -14,12 +14,13 @@ export const RightWrapper = styled.div`
     display: flex;
     margin: 5px 15px;
     align-items: center;
+    color: ${props => props.theme.isAlpha ? '#fff' : props.theme.text.primaryColor};
     span {
       cursor: pointer;
       padding: 12px 15px;
-      background-color: #fff;
+      /* background-color: #fff; */
       &:hover {
-        background-color: #f6f6f6;
+        background-color: ${props => props.theme.isAlpha ? 'rgba(233,233,233,.1)' : '#f5f5f5'};
         border-radius: 22px;
       }
     }

@@ -8,12 +8,13 @@ const HeaderRight = memo(() => {
   /** 定义内部状态 */
   const [ showPanel, setShowPanel ] = useState(false)
   /** 事件处理函数 */
-  function profileClickHandle() {
+  function profileClickHandle(event) {
     // if(showPanel) {
     //   setShowPanel(!showPanel)
     //   return
     // }
-    setShowPanel(true)
+    event.stopPropagation()
+    setShowPanel(!showPanel)
   }
 
   /** 副作用代码 */
@@ -21,11 +22,11 @@ const HeaderRight = memo(() => {
     function windowHandleClick() {
       setShowPanel(false)
     }
-    window.addEventListener('click', windowHandleClick, true)
+    window.addEventListener('click', windowHandleClick, false)
     return () => {
       window.removeEventListener('cluck', windowHandleClick)
     }
-  }, [])
+  }, [setShowPanel])
 
   return (
     <RightWrapper>
@@ -36,7 +37,7 @@ const HeaderRight = memo(() => {
           <IconGlobal/>
         </span>
       </div>
-      <div className='profile' onClick={profileClickHandle}>
+      <div className='profile' onClick={e => profileClickHandle(e)}>
         <IconMenu/>
         <IconAvatar/>
         

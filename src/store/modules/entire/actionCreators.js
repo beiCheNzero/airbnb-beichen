@@ -16,11 +16,21 @@ export const changeTotalCountAction = (totalCount) => ({
   totalCount
 })
 
-export const fetchRoomListAction = () => {
+export const changeIsLoadingAction = (isLoading) => ({
+  type: actionTypes.CHANGE_IS_LOADING,
+  isLoading
+})
+
+export const fetchRoomListAction = (page = 0) => {
   // 接受两个参数,dispatch,getState
   return async (dispatch, getState) => {
-    const currentPage = getState().entire.currentPage
-    const res = await getEntireRoomList(currentPage * 20)
+    // 修改currentPage
+    dispatch(changeCurrentPageAction(page))
+    // 获取数据
+    // const currentPage = getState().entire.currentPage
+    dispatch(changeIsLoadingAction(true))
+    const res = await getEntireRoomList(page * 20)
+    dispatch(changeIsLoadingAction(false))
     const { totalCount, list:roomList } = res
     dispatch(changeRoomListAction(roomList))
     dispatch(changeTotalCountAction(totalCount))
